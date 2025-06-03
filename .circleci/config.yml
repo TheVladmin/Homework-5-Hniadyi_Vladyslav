@@ -14,9 +14,9 @@ jobs:
       - run:
           name: Run Postman Collection
           command: |
-            ls -la                         # Перевіримо, що є файли
-            npx newman run homework5_collection.postman_collection.json \
-              --environment homework5_environment.postman_environment.json \
+            ls -la                         # Перевірка наявності файлів
+            npx newman run hw10collection.json \
+              --environment hw10env.json \
               --reporters cli,json \
               --reporter-json-export results/report.json
 
