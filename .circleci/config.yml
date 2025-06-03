@@ -14,10 +14,14 @@ jobs:
       - run:
           name: Run Postman Collection
           command: |
-            newman run "Homework 5 collection.postman_collection.json" \
-              --environment "Homework 5 Enviroment.postman_environment.json" \
+            ls -la                         # Дебаг: показує всі файли
+            newman run homework5_collection.postman_collection.json \
+              --environment homework5_environment.postman_environment.json \
               --reporters cli,json \
               --reporter-json-export results/report.json
+
+      - store_artifacts:
+          path: results/report.json
 
 workflows:
   version: 2
