@@ -8,14 +8,14 @@ jobs:
       - checkout
 
       - run:
-          name: Install Newman
-          command: npm install -g newman
+          name: Install Newman locally
+          command: npm install newman
 
       - run:
           name: Run Postman Collection
           command: |
-            ls -la                         # Дебаг: показує всі файли
-            newman run homework5_collection.postman_collection.json \
+            ls -la                         # Перевіримо, що є файли
+            npx newman run homework5_collection.postman_collection.json \
               --environment homework5_environment.postman_environment.json \
               --reporters cli,json \
               --reporter-json-export results/report.json
